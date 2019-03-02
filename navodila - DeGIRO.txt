@@ -1,0 +1,21 @@
+1. Izvoz transakcij iz DeGIRO platforme:
+  1. Transaktionen
+  2. Vklopimo opcijo Teilausführungen zusammenfassen: An
+  3. CSV
+2. S programom convert_degiro.py obdelamo transakcije:
+  1. Datoteko Transactions.csv shranimo v mapo npr. 2018
+  2. Odpremo convert_degiro.py in popravimo vhodne datoteke, tako da se imena začnejo z minulim letom npr. 2018
+  3. Poženemo program: python3 convert_degiro.py
+  4. Izhodno datoteko input.csv shranimo v mapo Makexml > Source
+3. Prenesemo konverzije iz USD v EUR za preteklo leto npr 2018:
+  1. https://sdw.ecb.europa.eu/browseTable.do?df=true&MAX_DOWNLOAD_SERIES=500&DATASET=0&node=qview&SERIES_MAX_NUM=50&SERIES_KEY=120.EXR.D.USD.EUR.SP00.A&activeTab=EXR&start=01-01-2018&end=31-12-2018&submitOptions.x=0&submitOptions.y=0&trans=N&q=&type=
+  2. Izberemo obdobje
+  3. Download Data > CSV - Character Separates
+  4. Pobrišemo header (prve 4 vrstice)
+  5. Vse vejice zamenjamo s presledkom
+  6. Datoteko preimenujemo v conversion.txt in jo shranimo v mapo Makexml > Source
+4. Poženemo program Makexml
+  1. Popravimo podatke v datoteki base.xml, da so relevantni za minulo obdobje, npr. leto 2018
+  2. Poženemo program
+  3. Pregledamo razultat programa, datoteko output.xml
+  4. Datoteko output.xml uvozimo s pomočjo portala eDavki
